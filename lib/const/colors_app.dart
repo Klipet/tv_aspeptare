@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+
+HexColor primariColor = HexColor('#F2F2F2');
+HexColor titleColorText = HexColor('#FFFFFF');
+Color titleColorTextShadow = Colors.black.withOpacity(0.1);
+HexColor containerColor = HexColor('#FFFFFF');
+HexColor borderColor = HexColor('#E5E5E5');
+HexColor textColor = HexColor('#040D12');
+HexColor subTextColor = HexColor('#919191');
+HexColor buttonColor = HexColor('#5CB338');
+HexColor colorDividerSelected = HexColor('#F2F2F2');
+HexColor colorBtTotal = HexColor('#1D4F58');
+HexColor colorBtJob = HexColor('#28A4D9');
+HexColor colorBtAwait = HexColor('#50BFC6');
+HexColor colorBtSave = HexColor('#99EAD7');
+HexColor colorTextBlack = HexColor('#040D12');
+HexColor btSelectedColor = HexColor('#1D4F58');
+HexColor selectedColor = HexColor('#DEDEDE');
+HexColor priceColor = HexColor('#E52B13');
+HexColor shadowColor = HexColor('#808080');
+//HexColor selectedColor = HexColor('#00000012');
+
+String colorLeft = "#49545D";
+String colorRight = "#2C3539";
+String colorTextTitleLeft = "#FFFFFF";
+String colorTextTitleRight = "#FFFFFF";
+String colorTitleLeftBox = "#5B656D";
+String colorTitleRightBox = "#41494C";
+String colorLeftBox = "#2C3539";
+String colorRightBox = "#44C369";
+String colorTextBoxLeft = "#FFFFFF";
+String colorTextBoxRight = "#FFFFFF";
+String boxBorderColor = "#FFFFFF";
