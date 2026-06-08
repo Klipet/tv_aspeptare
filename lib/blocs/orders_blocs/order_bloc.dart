@@ -25,7 +25,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   /// Кол-во часов для фильтрации заказов (приходит снаружи)
   final int deleteHours;
 
-  OrderBloc({this.deleteHours = 24}) : super(HomeInitial()) {
+  OrderBloc({required this.deleteHours}) : super(HomeInitial()) {
     on<HomeStarted>(_onStarted);
     on<HomeStopped>(_onStopped);
     on<HomeRefreshRequested>(_onRefreshRequested);
