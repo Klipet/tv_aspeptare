@@ -62,10 +62,9 @@ class _HomeViewState extends State<_HomeView> {
     // Menu / F10 → настройки
     if (key == LogicalKeyboardKey.select ||
         key == LogicalKeyboardKey.f10) {
-      printRich("You press Menu of F10", background: Colors.redAccent);
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (_) => const SettingScreen()),
+        MaterialPageRoute(builder: (_) => const SettingsScreen()),
       );
       return KeyEventResult.handled;
     }
@@ -127,26 +126,6 @@ class _HomeViewState extends State<_HomeView> {
     return true;
   }
 
-  PreferredSizeWidget? _buildAppBar(ScreenSettingsHeader settings) {
-    if (settings.textTitle.isEmpty) return null;
-    return AppBar(
-      centerTitle: true,
-      toolbarHeight: settings.sizeToolBar,
-      automaticallyImplyLeading: false,
-      title: Padding(
-        padding: EdgeInsets.only(bottom: settings.paddingHeader),
-        child: Text(
-          settings.textTitle,
-          textAlign: TextAlign.center,
-          style: GoogleFonts.getFont(
-            settings.styleTitle,
-            fontSize: settings.sizeText,
-          ),
-        ),
-      ),
-    );
-  }
-
   Widget _buildAnimation(BuildContext context, OrderState state) {
     final settingsHeader = context.read<ScreenSettingsHeader>();
     final settingsLeft = context.read<ScreenSettingsLeft>();
@@ -166,8 +145,7 @@ class _HomeViewState extends State<_HomeView> {
       _ => <int>[],
     };
 
-    return switch (settingsHeader.animatie) {
-      'Default' => NewAnimation(
+    return  NewAnimation(
         ordersListLeft: left,
         ordersListRight: right,
         settingsLeft: settingsLeft,
@@ -175,10 +153,8 @@ class _HomeViewState extends State<_HomeView> {
         settingsRight: settingsRight,
         settingsBoxLeft: settingsBoxLeft,
         settingsBoxRight: settingsBoxRight,
-        numberRight: 0,
-      ),
-      _ => const SizedBox.shrink(),
-    };
+        numberRight: 0
+    );
   }
 //  Widget _buildNoConnectionOverlay() {
 //    return Align(
