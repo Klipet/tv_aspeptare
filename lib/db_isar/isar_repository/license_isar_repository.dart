@@ -53,6 +53,23 @@ class LicenseIsarRepository {
     return settings?.company;
   }
 
+  Future<void> pushAdbApiKey({required String apiKey}) async {
+    final isar = await IsarService.init();
+    await isar.writeTxn(() async {
+      final model = await isar.licenseModelIsars.where().findFirst();
+      if (model != null) {
+        model.adbApikey = apiKey;
+        await isar.licenseModelIsars.put(model);
+      }
+    });
+  }
+
+  Future<String?> getAdbApiKey() async {
+    final isar = await IsarService.init();
+    final settings = await isar.licenseModelIsars.get(0);
+    return settings?.adbApikey;
+  }
+
   // Stream — слушать изменения
   Future<Stream<List<LicenseModelIsar>>> watchAll() async {
     final _isar = await IsarService.init();

@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
     final settingsHeader = context.watch<ScreenSettingsHeader>();
 
     return BlocProvider(
-      create: (_) => OrderBloc(deleteHours: settingsHeader.deleteHours)
+      create: (_) => OrderBloc(settingsHeader)
         ..add(HomeStarted()),
       child: const _HomeView(),
     );

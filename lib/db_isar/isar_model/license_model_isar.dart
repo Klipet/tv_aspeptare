@@ -9,4 +9,5 @@ class LicenseModelIsar{
   late String uri;
   late String apikey;
   late String company;
+  late String adbApikey;
 }

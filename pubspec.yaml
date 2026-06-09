@@ -43,6 +43,7 @@ dependencies:
   flutter_riverpod: ^2.4.0
   sound_library: ^1.0.0
   flex_color_picker: ^3.7.2
+  disk_space_plus: ^0.2.6
   rich_console: ^1.0.4
 
 dev_dependencies:

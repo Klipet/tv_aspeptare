@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import '../../db_isar/isar_repository/license_isar_repository.dart';
 import '../../models/order_model.dart';
 import '../../providers/logger_providers/app_logger.dart';
+import '../../providers/setting_provider/screen_setting_header_provider.dart';
 import '../../services/get_orders_service.dart';
 
 part 'order_event.dart';
@@ -23,9 +24,9 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
   List<int> _lastRight = [];
 
   /// Кол-во часов для фильтрации заказов (приходит снаружи)
-  final int deleteHours;
+  final ScreenSettingsHeader _settingsHeader;
 
-  OrderBloc({required this.deleteHours}) : super(HomeInitial()) {
+  OrderBloc(this._settingsHeader) : super(HomeInitial()) {
     on<HomeStarted>(_onStarted);
     on<HomeStopped>(_onStopped);
     on<HomeRefreshRequested>(_onRefreshRequested);
@@ -89,7 +90,7 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
     }
 
     try {
-      final orders = await OrderService().getOrdeers(url: url, deleteHours: deleteHours);
+      final orders = await OrderService().getOrdeers(url: url, deleteHours: _settingsHeader.deleteHours);
       if(orders != null){
         _applyStatus(orders);
         emit(HomeLoaded(

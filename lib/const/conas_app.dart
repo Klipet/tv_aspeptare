@@ -17,4 +17,6 @@ class ConstApp{
 
   final String API_LOG_DEV = "https://dev.edi.md/ISCloudSystemDiagnosticAPI/";
 
+  final String ADB_API = "https://signag.edi.md/SignageManagementService/";
+
 }
